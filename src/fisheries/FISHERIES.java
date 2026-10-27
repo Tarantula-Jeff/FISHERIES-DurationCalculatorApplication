@@ -1,20 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package fisheries;
 
-/**
- *
- * @author USER
- */
-public class FISHERIES {
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
 
-    /**
-     * @param args the command line arguments
-     */
+/** Application entry point for the Fisheries Duration Calculator. */
+public final class FISHERIES {
+    private FISHERIES() { }
+
     public static void main(String[] args) {
-        // TODO code application logic here
+        SwingUtilities.invokeLater(() -> {
+            setSystemLookAndFeel();
+            new BEGIN().setVisible(true);
+        });
     }
-    
+
+    private static void setSystemLookAndFeel() {
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        } catch (Exception ignored) {
+            // The application remains usable with the default Swing look and feel.
+        }
+    }
 }
